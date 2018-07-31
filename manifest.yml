@@ -1,0 +1,11 @@
+---
+applications:
+- name: shorty
+  buildpack: go_buildpack
+  disk: 256M
+  memory: 64M
+  random-route: false
+  health-check-type: http
+  health-check-http-endpoint: /health
+  routes:
+  - route: shorty.cfapps.io
