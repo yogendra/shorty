@@ -13,7 +13,10 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 
 	code := r.URL.Path
 	code = strings.TrimPrefix(code, "/")
-	if url, ok := urls[code]; ok {
+	if code == "" {
+		http.Redirect(w, r, "/health", 302)
+		log.Printf("status: redirect, code: , url: %v", "/health")
+	} else if url, ok := urls[code]; ok {
 		http.Redirect(w, r, url, 302)
 		log.Printf("status: redirected,  code: %v, url: %v", code, url)
 	} else {
