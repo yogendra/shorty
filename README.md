@@ -1,33 +1,47 @@
-# Simple go web app
+# Sorty - Less is More
 
-This is a simple demonstration web app written in Go (martini framework) that easily runs on Cloud Foundry.
+Simple app to do url shortening. This app is designed to work without any backend. All url mappings are in `urls.go` file. Edit that.
 
-# Run it
+This is a standalne app. Its best to run it on cloudfoundry.
+
+```
+git clone https://github.com/yogendra/shorty.git shorty
+cd shorty
+cf push
+```
+
+# Run with docker
+
+```
+docker run -p shorty
+```
+
+# Running on self-hosted environement with Go
 
 - Just go get
 
-  ```
-  go get github.com/yogendra/shorty
-  ```
+```
+
+go get github.com/yogendra/shorty
+
+```
 
 - And run
 
-  ```
-  shorty
-  ```
+```
+
+shorty
+
+```
 
 - Check it out
 
-  - [http://localhost:8080/twitter][http://localhost:8080/twitter] -> [https://twitter.com/pivotal][https://twitter.com/pivotal]
+  - http://localhost:8080/twitter -> https://twitter.com/pivotal
 
-## Locally
+# Build Locally
 
 ```
+
 go run urls.go main.go
-```
 
-## Cloud Foundry
-
-```
-cf push
 ```
